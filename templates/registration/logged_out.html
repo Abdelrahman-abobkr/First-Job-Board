@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
+
+{% block head_title %}{% trans 'Logout' %}{% endblock %}
+
+{% block content %}
+
+<!-- bradcam_area  -->
+<div class="bradcam_area bradcam_bg_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text">
+                    <h3>Logout</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="job_details_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="apply_job_form white-bg">
+                    <h2>Logged out</h4>
+                        <p class='text-center mb-3'>Thanks for spending some quality time with the web site today.</p>
+                        <a href="/accounts/login/" class="boxed-btn3 w-100">Log in again</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

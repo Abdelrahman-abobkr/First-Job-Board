@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
+
+{% block head_title %}{% trans 'Login' %}{% endblock %}
+
+{% block content %}
+
+<!-- bradcam_area  -->
+<div class="bradcam_area bradcam_bg_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text">
+                    <h3>Login</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="job_details_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="apply_job_form white-bg">
+                    <h2>Login</h2><br>
+                    <form method='POST'>
+                        {% csrf_token %}
+
+                        {% if messages %}
+                            {% for msg in messages %}
+                            <div class="alert alert-{{msg.tags}} alert-dismissible" role="alert">
+                                <button class="close" type="button" data-dismiss="alert" aria-label="close" fdprocessedid="q83sii">×</button>
+                                {{msg}}
+                            </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>NOTE: You Can Login With <b>Username</b> OR <b>Email</b></p> 
+                        {% endif %}
+
+                        {% bootstrap_form form %}
+                        <input type="submit" value="Log in" class="boxed-btn3 w-100">
+                        <p class='text-center mt-3'><a href="/accounts/password_reset/">Forgot Password?</a></p>
+                        <p class="text-center mt-3">Don't Have An Account? <a href="/accounts/register/">Register</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

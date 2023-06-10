@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
+{% block head_title %}{% trans 'Edit Profile' %}{% endblock %}
+
+{% block content %}
+
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>Edit Profile</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <div class="job_details_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="apply_job_form white-bg">
+                        <h4>Edit Profile</h4>
+                        <form method='POST'>
+                            {% csrf_token %}
+                            {% if messages %}
+                                {% for msg in messages %}
+                                    <div class="alert alert-danger alert-dismissible" role="alert">
+                                        <button class="close" type="button" data-dismiss="alert" aria-label="close" fdprocessedid="q83sii">×</button>
+                                        {{msg}}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                            {% bootstrap_form u_form %}
+                            {% bootstrap_form p_form %}
+                            <a href="/accounts/password_change/">Change My Password?</a>
+                            <input type="submit" value="Edit" class='boxed-btn3 w-100 mt-3'>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
